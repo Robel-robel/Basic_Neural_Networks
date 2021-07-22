@@ -3,6 +3,17 @@ from sklearn.metrics import confusion_matrix
 import csv
 import re
 import pandas as pd
+import numpy as np
+from nltk.stem import PorterStemmer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.metrics import confusion_matrix
+
+df = pd.read_json(r"C:\Users\User\PycharmProjects\ML_Project\data\Sarcasm_Headlines_Dataset.json", lines=True)
+
+dataHeading = "headline"
+className = "is_sarcastic"
 
 with open("C:/Users/User/PycharmProjects/ML_Project/data/train1.csv", 'r') as file:
   reviews = list(csv.reader(file))
